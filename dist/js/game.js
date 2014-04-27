@@ -7,7 +7,6 @@ window.onload = function () {
 
   // Game States
   game.state.add('boot', require('./states/boot'));
-  game.state.add('gameover', require('./states/gameover'));
   game.state.add('menu', require('./states/menu'));
   game.state.add('play', require('./states/play'));
   game.state.add('preload', require('./states/preload'));
@@ -15,7 +14,7 @@ window.onload = function () {
 
   game.state.start('boot');
 };
-},{"./states/boot":7,"./states/gameover":8,"./states/menu":9,"./states/play":10,"./states/preload":11}],2:[function(require,module,exports){
+},{"./states/boot":7,"./states/menu":8,"./states/play":9,"./states/preload":10}],2:[function(require,module,exports){
 'use strict';
 
 var Bird = function(game, x, y, frame) {
@@ -310,34 +309,6 @@ module.exports = Boot;
 },{}],8:[function(require,module,exports){
 
 'use strict';
-function GameOver() {}
-
-GameOver.prototype = {
-  preload: function () {
-
-  },
-  create: function () {
-    var style = { font: '65px Arial', fill: '#ffffff', align: 'center'};
-    this.titleText = this.game.add.text(this.game.world.centerX,100, 'Game Over!', style);
-    this.titleText.anchor.setTo(0.5, 0.5);
-
-    this.congratsText = this.game.add.text(this.game.world.centerX, 200, 'You Win!', { font: '32px Arial', fill: '#ffffff', align: 'center'});
-    this.congratsText.anchor.setTo(0.5, 0.5);
-
-    this.instructionText = this.game.add.text(this.game.world.centerX, 300, 'Click To Play Again', { font: '16px Arial', fill: '#ffffff', align: 'center'});
-    this.instructionText.anchor.setTo(0.5, 0.5);
-  },
-  update: function () {
-    if(this.game.input.activePointer.justPressed()) {
-      this.game.state.start('play');
-    }
-  }
-};
-module.exports = GameOver;
-
-},{}],9:[function(require,module,exports){
-
-'use strict';
 function Menu() {}
 
 Menu.prototype = {
@@ -399,7 +370,7 @@ Menu.prototype = {
 
 module.exports = Menu;
 
-},{}],10:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 'use strict';
 var Bird = require('../prefabs/bird');
 var Ground = require('../prefabs/ground');
@@ -542,7 +513,7 @@ Play.prototype = {
 };
 
 module.exports = Play;
-},{"../prefabs/bird":2,"../prefabs/ground":3,"../prefabs/pipe":4,"../prefabs/pipeGroup":5,"../prefabs/scoreboard":6}],11:[function(require,module,exports){
+},{"../prefabs/bird":2,"../prefabs/ground":3,"../prefabs/pipe":4,"../prefabs/pipeGroup":5,"../prefabs/scoreboard":6}],10:[function(require,module,exports){
 'use strict';
 function Preload() {
   this.asset = null;
