@@ -11,9 +11,13 @@ set :copy_compression, :bz2
 set :normalize_asset_timestamps, false
 set :document_root, "/home/uldza/apps/flappy"
 set :ssh_options, {:forward_agent => true}
-set :user, "deploy"
+
+set(:user) { Capistrano::CLI.ui.ask("User name: ") }
+set(:host) { Capistrano::CLI.ui.ask("Hostname: ") }
+set(:port) { Capistrano::CLI.ui.ask("SSH port: ") }
  
-role :app, "192.165.67.169"
+role :app, host
+ssh_options[:port] = port
  
 namespace :deploy do
     task :start, :roles => :app do
