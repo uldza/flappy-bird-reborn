@@ -9,7 +9,7 @@ set :keep_releases, 5
 set :use_sudo, false
 set :copy_compression, :bz2
 set :normalize_asset_timestamps, false
-set :document_root, "/home/uldza/apps/flappy"
+set :document_root, "/home/demo/apps/flappy"
 set :ssh_options, {:forward_agent => true}
 
 set(:user) { Capistrano::CLI.ui.ask("User name: ") }
