@@ -1,7 +1,7 @@
 set :application, "flappy"
 set :scm, "git"
 set :repository, "https://github.com/uldza/flappy-bird-reborn.git"
-set :branch, "master"
+set :branch, fetch(:branch, "master")
 set :deploy_to, "/home/demo/apps/flappy"
 set :deploy_via, :remote_cache
 set :copy_strategy, :checkout
